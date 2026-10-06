@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investment Process Maps</title>
+<meta name="description" content="Process maps for AI in investment work by Caesar Rana, CFA. Built at SpaceXAI and shared with permission.">
+<style>
+  :root { --bg:#fbfbfa; --ink:#1b232c; --muted:#5b6672; --rule:#dfe3e8; --card:#ffffff; --accent:#1d4e89; --g:#2e7d32; --y:#b7791f; --r:#c0392b; --p:#6b3fa0; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#12161b; --ink:#e6eaef; --muted:#9aa5b1; --rule:#2a313a; --card:#1a2027; --accent:#8fb8ef; } }
+  :root[data-theme="dark"] { --bg:#12161b; --ink:#e6eaef; --muted:#9aa5b1; --rule:#2a313a; --card:#1a2027; --accent:#8fb8ef; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:16px; line-height:1.55; }
+  main { max-width: 920px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: clamp(26px, 4.5vw, 36px); line-height:1.15; margin:0 0 6px; letter-spacing:-0.3px; }
+  .by { color:var(--muted); margin:0 0 22px; }
+  .lede { font-size: 18px; max-width: 720px; margin: 0 0 14px; }
+  .proof { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; max-width: 720px; margin: 20px 0 8px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 44px 0 14px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+  a.card { display:block; background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:16px; color:inherit; text-decoration:none; }
+  a.card:hover { border-color: var(--accent); }
+  .card h3 { margin:0 0 6px; font-size:17px; }
+  .card p { margin:0 0 10px; color:var(--muted); font-size:14.5px; }
+  .nums { font-size: 13px; font-weight:600; color: var(--accent); }
+  ol.method { padding-left: 20px; max-width: 720px; }
+  ol.method li { margin-bottom: 8px; }
+  .tags span { display:inline-block; font-size:12.5px; padding:2px 8px; border-radius:999px; margin:0 6px 6px 0; border:1px solid var(--rule); }
+  .tags .g { color:var(--g); } .tags .y { color:var(--y); } .tags .r { color:var(--r); } .tags .p { color:var(--p); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top:1px solid var(--rule); padding-top: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Process maps for AI in investment work</h1>
+  <p class="by">Caesar Rana, CFA</p>
+
+  <p class="lede">These maps show how investment work actually gets done, step by step. For each step I decide whether a model can do it alone, whether a person should review it, or whether it has to stay with people. Each map is written so an AI agent can follow it as a skills file.</p>
+  <p class="lede">I built them at SpaceXAI, where I lead the portfolio management pod, and they are shared here with SpaceXAI's permission. Together they cover more than 500 mapped steps and tasks.</p>
+
+  <p class="proof">The EM infrastructure portfolio map was turned into a skills file that a frontier model followed through most of the process. That design is now the basis of an ongoing SpaceXAI project.</p>
+
+  <div class="tags" aria-label="Legend used in the maps">
+    <span class="g">Model does it alone</span><span class="y">Model drafts, person reviews</span><span class="r">Stays with people</span><span class="p">Decision gate</span>
+  </div>
+
+  <h2>The maps</h2>
+  <div class="grid">
+    <a class="card" href="https://mindtensorml.github.io/ic-memo-creation/">
+      <h3>IC memo production</h3>
+      <p>Everything behind an infrastructure investment committee memo, split into legal, financial, technical and ESG, and commercial workstreams.</p>
+      <div class="nums">231 tasks · 27 decision points · 7 sync points</div>
+    </a>
+    <a class="card" href="https://mindtensorml.github.io/ppp-bid-pipeline/">
+      <h3>PPP bid preparation</h3>
+      <p>A PPP bid from screening to financial close, with pink and red team reviews, based on the APMG PPP Certification Guide.</p>
+      <div class="nums">11 phases · 121 tasks · 13 decision gates</div>
+    </a>
+    <a class="card" href="https://mindtensorml.github.io/pm-em/">
+      <h3>EM infrastructure portfolio</h3>
+      <p>Running an emerging-market infrastructure portfolio from mandate to watchlist, with screening under the IFC Performance Standards.</p>
+      <div class="nums">8 steps · 5 gates · 52 process nodes</div>
+    </a>
+    <a class="card" href="https://mindtensorml.github.io/financial-modelling/">
+      <h3>Financial modeling playbook</h3>
+      <p>Building a model that holds up in review, from scoping and architecture to stress tests and circular references. Version 8.</p>
+      <div class="nums">6 phases · 91 steps · 13 checkpoints</div>
+    </a>
+    <a class="card" href="https://mindtensorml.github.io/pm-framework/">
+      <h3>Portfolio construction</h3>
+      <p>A general process that routes by objective type and selection method, with three tiers of feedback.</p>
+      <div class="nums">7 steps · 35 sub-steps · 3 feedback tiers</div>
+    </a>
+    <a class="card" href="https://mindtensorml.github.io/pm-rms/">
+      <h3>AI-assisted equity portfolio pilot</h3>
+      <p>A five-week pilot for a US equity value portfolio, from mandate to mock investment committee, using public data only.</p>
+      <div class="nums">7 stages · 2 human gates · 5 weeks</div>
+    </a>
+  </div>
+
+  <h2>How the maps are made</h2>
+  <ol class="method">
+    <li><b>Map the work as practitioners do it.</b> Every step, handoff and check, including the ones nobody writes down.</li>
+    <li><b>Classify each step.</b> Decide what a model can do alone, what needs a reviewer, and what stays with people.</li>
+    <li><b>Put the gates where the risk is.</b> Go or no-go points sit before money or reputation is committed.</li>
+    <li><b>Write it for an agent.</b> Turn the map into a skills file, then check whether a model actually follows it.</li>
+  </ol>
+
+  <h2>Also built</h2>
+  <div class="grid">
+    <a class="card" href="https://mindtensorml.github.io/ai-ghee/">
+      <h3>ai-ghee</h3>
+      <p>A Raspberry Pi rig, built with Claude, that churns traditional bilona ghee and stops itself when the butter breaks, by watching the motor current.</p>
+    </a>
+  </div>
+
+  <footer>Caesar Rana is a CFA charterholder, an APMG Certified PPP Professional and a former IFC Operations Officer. The maps describe general methods and contain no client data.</footer>
+</main>
+</body>
+</html>
