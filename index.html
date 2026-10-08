@@ -4,98 +4,167 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Investment Process Maps</title>
-<meta name="description" content="Process maps for AI in investment work by Caesar Rana, CFA. Built at SpaceXAI and shared with permission.">
+<meta name="description" content="Process maps for AI in investment work by Caesar Rana, CFA, APMG CP3P.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fbfbfa; --ink:#1b232c; --muted:#5b6672; --rule:#dfe3e8; --card:#ffffff; --accent:#1d4e89; --g:#2e7d32; --y:#b7791f; --r:#c0392b; --p:#6b3fa0; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#12161b; --ink:#e6eaef; --muted:#9aa5b1; --rule:#2a313a; --card:#1a2027; --accent:#8fb8ef; } }
-  :root[data-theme="dark"] { --bg:#12161b; --ink:#e6eaef; --muted:#9aa5b1; --rule:#2a313a; --card:#1a2027; --accent:#8fb8ef; }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:16px; line-height:1.55; }
-  main { max-width: 920px; margin: 0 auto; padding: 48px 16px 64px; }
-  h1 { font-size: clamp(26px, 4.5vw, 36px); line-height:1.15; margin:0 0 6px; letter-spacing:-0.3px; }
-  .by { color:var(--muted); margin:0 0 22px; }
-  .lede { font-size: 18px; max-width: 720px; margin: 0 0 14px; }
-  .proof { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; max-width: 720px; margin: 20px 0 8px; }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 44px 0 14px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
-  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
-  a.card { display:block; background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:16px; color:inherit; text-decoration:none; }
-  a.card:hover { border-color: var(--accent); }
-  .card h3 { margin:0 0 6px; font-size:17px; }
-  .card p { margin:0 0 10px; color:var(--muted); font-size:14.5px; }
-  .nums { font-size: 13px; font-weight:600; color: var(--accent); }
-  ol.method { padding-left: 20px; max-width: 720px; }
-  ol.method li { margin-bottom: 8px; }
-  .tags span { display:inline-block; font-size:12.5px; padding:2px 8px; border-radius:999px; margin:0 6px 6px 0; border:1px solid var(--rule); }
-  .tags .g { color:var(--g); } .tags .y { color:var(--y); } .tags .r { color:var(--r); } .tags .p { color:var(--p); }
-  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top:1px solid var(--rule); padding-top: 14px; }
-  a { color: var(--accent); }
+:root { --bg:#F7F5F0; --paper:#FFFFFF; --ink:#13202F; --muted:#5D6B7A; --faint:#8A95A3; --rule:#E6E1D8; --accent:#1F3A5F; --gold:#A8874F;
+  --g:#5E9A70; --y:#D2AE5C; --r:#C3705F; --d:#8B76B0; --s:#C9CED6;
+  --serif:"Fraunces", Georgia, serif; --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif; --mono:"JetBrains Mono", ui-monospace, monospace; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0F151C; --paper:#151D26; --ink:#E8E4DC; --muted:#A3ADB8; --faint:#7D8894; --rule:#26313C; --accent:#9DB8DA; --gold:#C9A86E; --s:#46505C; } }
+:root[data-theme="dark"] { --bg:#0F151C; --paper:#151D26; --ink:#E8E4DC; --muted:#A3ADB8; --faint:#7D8894; --rule:#26313C; --accent:#9DB8DA; --gold:#C9A86E; --s:#46505C; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+.wrap { max-width:1180px; margin:0 auto; padding:0 16px; }
+.top { border-bottom:1px solid var(--rule); background:var(--paper); }
+.top .wrap { padding-top:12px; padding-bottom:12px; display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between; font-size:13px; color:var(--muted); }
+.top b { color:var(--ink); font-weight:600; }
+.eyebrow { font-size:12px; letter-spacing:1.6px; text-transform:uppercase; color:var(--gold); font-weight:600; }
+.hero { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:56px; align-items:center; padding:72px 0 56px; }
+h1 { font-family:var(--serif); font-weight:500; font-size:clamp(38px,5.4vw,62px); line-height:1.03; letter-spacing:-.8px; margin:14px 0 18px; }
+.subtitle { font-family:var(--serif); font-size:clamp(18px,2.1vw,22px); line-height:1.45; color:var(--muted); margin:0 0 20px; max-width:620px; }
+.lede { max-width:620px; font-size:16px; margin:0; }
+.proof { margin-top:26px; padding:14px 18px; border-left:3px solid var(--gold); background:var(--paper); border-radius:0 10px 10px 0; max-width:620px; font-size:15px; }
+.proof .l { display:block; font-size:11px; letter-spacing:1.3px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:2px; }
+.split { background:var(--paper); border:1px solid var(--rule); border-radius:16px; padding:26px 26px 22px; }
+.split .k { font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:var(--faint); font-weight:600; }
+.split h3 { font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.25; margin:6px 0 18px; }
+.bar { display:flex; height:14px; border-radius:999px; overflow:hidden; gap:2px; margin-bottom:18px; }
+.bar i { display:block; height:100%; }
+.split ul { list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.split li { display:grid; grid-template-columns:12px 1fr auto; gap:12px; align-items:center; font-size:13.5px; color:var(--muted); }
+.split li .dot { width:10px; height:10px; border-radius:3px; }
+.split li b { font-family:var(--serif); font-weight:500; font-size:19px; color:var(--ink); }
+.split .src { margin-top:16px; padding-top:12px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--faint); }
+section { padding:56px 0 0; }
+.sh { display:flex; justify-content:space-between; align-items:flex-end; gap:16px; border-bottom:1px solid var(--rule); padding-bottom:12px; margin-bottom:24px; }
+h2 { font-family:var(--serif); font-weight:500; font-size:30px; letter-spacing:-.3px; margin:4px 0 0; line-height:1.15; }
+.feat { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+a.fc { display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--rule); border-radius:16px; overflow:hidden; color:var(--ink); transition:border-color .15s, transform .15s; }
+a.fc:hover { border-color:var(--gold); text-decoration:none; transform:translateY(-2px); }
+.thumb { aspect-ratio:16/10; background:#FFFFFF; border-bottom:1px solid var(--rule); overflow:hidden; position:relative; }
+.thumb img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+.thumb::after { content:""; position:absolute; inset:auto 0 0 0; height:38%; background:linear-gradient(to bottom, rgba(255,255,255,0), #FFFFFF); }
+.fc .body { padding:18px 20px 20px; display:flex; flex-direction:column; flex:1; }
+.fc .k { font-size:11px; letter-spacing:1.3px; text-transform:uppercase; color:var(--gold); font-weight:600; }
+.fc h3 { font-family:var(--serif); font-weight:500; font-size:23px; line-height:1.2; margin:6px 0 8px; }
+.fc p { margin:0 0 16px; color:var(--muted); font-size:14.5px; }
+.fc .nums { margin-top:auto; display:flex; flex-wrap:wrap; gap:4px 18px; padding-top:12px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--muted); }
+.fc .nums b { font-family:var(--serif); font-weight:500; font-size:17px; color:var(--ink); margin-right:4px; }
+.more { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:18px; }
+a.mc { display:block; padding:18px 20px; border:1px solid var(--rule); border-radius:14px; color:var(--ink); background:transparent; transition:border-color .15s, background .15s; }
+a.mc:hover { border-color:var(--gold); background:var(--paper); text-decoration:none; }
+.mc .k { font-size:11px; letter-spacing:1.3px; text-transform:uppercase; color:var(--faint); font-weight:600; }
+.mc h3 { font-family:var(--serif); font-weight:500; font-size:19px; margin:4px 0 6px; line-height:1.25; }
+.mc p { margin:0 0 10px; color:var(--muted); font-size:14px; }
+.mc .n { font-family:var(--mono); font-size:11.5px; color:var(--faint); }
+.steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; border-top:2px solid var(--rule); }
+.steps div { padding:20px 22px 4px 0; position:relative; }
+.steps div::before { content:""; position:absolute; top:-7px; left:0; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--gold); }
+.steps .n { font-family:var(--mono); font-size:11px; color:var(--faint); }
+.steps h4 { font-family:var(--serif); font-weight:500; font-size:18px; margin:4px 0 6px; line-height:1.25; }
+.steps p { margin:0; font-size:14px; color:var(--muted); }
+footer { margin:80px 0 0; padding:22px 0 40px; border-top:1px solid var(--rule); color:var(--faint); font-size:13px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; }
+footer p { margin:0; max-width:640px; }
+@media (max-width:960px) { .hero { grid-template-columns:1fr; gap:36px; padding-top:48px; } .feat, .more { grid-template-columns:1fr; } .steps { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:20px; } }
+@media (max-width:520px) { .steps { grid-template-columns:1fr; } h2 { font-size:25px; } .sh { flex-direction:column; align-items:flex-start; } }
 </style>
 </head>
 <body>
-<main>
-  <h1>Process maps for AI in investment work</h1>
-  <p class="by">Caesar Rana, CFA</p>
-
-  <p class="lede">These maps show how investment work actually gets done, step by step. For each step I decide whether a model can do it alone, whether a person should review it, or whether it has to stay with people. Each map is written so an AI agent can follow it as a skills file.</p>
-  <p class="lede">I built them at SpaceXAI, where I lead the portfolio management pod, and they are shared here with SpaceXAI's permission. Together they cover more than 500 mapped steps and tasks.</p>
-
-  <p class="proof">The EM infrastructure portfolio map was turned into a skills file that a frontier model followed through most of the process. That design is now the basis of an ongoing SpaceXAI project.</p>
-
-  <div class="tags" aria-label="Legend used in the maps">
-    <span class="g">Model does it alone</span><span class="y">Model drafts, person reviews</span><span class="r">Stays with people</span><span class="p">Decision gate</span>
+<div class="top"><div class="wrap"><span><b>mindtensorML</b> · Process maps for AI in investment work</span><span>Caesar Rana, CFA, APMG CP3P</span></div></div>
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Infrastructure, PPPs and portfolio work</div>
+      <h1>Investment work, mapped for AI</h1>
+      <p class="subtitle">How deals and portfolios actually get done, step by step, with a clear line between what a model can do and what stays with people.</p>
+      <p class="lede">I built these maps at SpaceXAI, where I lead the portfolio management pod. Each one is written so an AI agent can follow it as a skills file. Together they cover more than 500 mapped steps and tasks.</p>
+      <div class="proof"><span class="l">Tested</span>The EM infrastructure portfolio map was turned into a skills file, and a frontier model followed it through most of the process. That design is now the basis of an ongoing SpaceXAI project.</div>
+    </div>
+    <aside class="split" aria-label="Example of how work is split">
+      <div class="k">How each step is classified</div>
+      <h3>Behind one infrastructure IC memo, 231 tasks</h3>
+      <div class="bar" role="img" aria-label="85 model-capable, 82 hybrid, 14 human-only, 27 decision points, 23 skip paths">
+        <i style="flex:85;background:var(--g)"></i><i style="flex:82;background:var(--y)"></i><i style="flex:14;background:var(--r)"></i><i style="flex:27;background:var(--d)"></i><i style="flex:23;background:var(--s)"></i>
+      </div>
+      <ul>
+        <li><span class="dot" style="background:var(--g)"></span><span>A model can do it alone</span><b>85</b></li>
+        <li><span class="dot" style="background:var(--y)"></span><span>A model drafts, a person checks</span><b>82</b></li>
+        <li><span class="dot" style="background:var(--r)"></span><span>Stays with people</span><b>14</b></li>
+        <li><span class="dot" style="background:var(--d)"></span><span>Decision points</span><b>27</b></li>
+        <li><span class="dot" style="background:var(--s)"></span><span>Skip paths when a workstream does not apply</span><b>23</b></li>
+      </ul>
+      <div class="src">From the IC memo production map. The split is a design estimate, not a measured result.</div>
+    </aside>
   </div>
 
-  <h2>The maps</h2>
-  <div class="grid">
-    <a class="card" href="https://mindtensorml.github.io/ic-memo-creation/">
-      <h3>IC memo production</h3>
-      <p>Everything behind an infrastructure investment committee memo, split into legal, financial, technical and ESG, and commercial workstreams.</p>
-      <div class="nums">231 tasks · 27 decision points · 7 sync points</div>
-    </a>
-    <a class="card" href="https://mindtensorml.github.io/ppp-bid-pipeline/">
-      <h3>PPP bid preparation</h3>
-      <p>A PPP bid from the first pipeline signal to financial close, mapped against the APMG PPP Certification Guide, with a named owner on every task.</p>
-      <div class="nums">14 phases · 114 tasks · 17 decision gates</div>
-    </a>
-    <a class="card" href="https://mindtensorml.github.io/pm-em/">
-      <h3>EM infrastructure portfolio</h3>
-      <p>Running an emerging-market infrastructure portfolio from mandate to watchlist, with screening under the IFC Performance Standards.</p>
-      <div class="nums">8 steps · 5 gates · 52 process nodes</div>
-    </a>
-    <a class="card" href="https://mindtensorml.github.io/financial-modelling/">
-      <h3>Financial modeling playbook</h3>
-      <p>Building a model that holds up in review, from scoping and architecture to stress tests and circular references. Version 8.</p>
-      <div class="nums">6 phases · 91 steps · 13 checkpoints</div>
-    </a>
-    <a class="card" href="https://mindtensorml.github.io/pm-framework/">
-      <h3>Portfolio construction</h3>
-      <p>A general process that routes by objective type and selection method, with three tiers of feedback.</p>
-      <div class="nums">7 steps · 35 sub-steps · 3 feedback tiers</div>
-    </a>
-    <a class="card" href="https://mindtensorml.github.io/pm-rms/">
-      <h3>AI-assisted equity portfolio pilot</h3>
-      <p>A five-week pilot for a US equity value portfolio, from mandate to mock investment committee, using public data only.</p>
-      <div class="nums">7 stages · 2 human gates · 5 weeks</div>
-    </a>
-  </div>
+  <section id="maps">
+    <div class="sh"><div><div class="eyebrow">Featured</div><h2>The maps</h2></div></div>
+    <div class="feat">
+      <a class="fc" href="https://mindtensorml.github.io/ic-memo-creation/">
+        <div class="thumb"><img src="assets/thumb-ic.png" alt="Master flow of the IC memo production map" loading="lazy"></div>
+        <div class="body">
+          <div class="k">Investment committee</div>
+          <h3>IC memo production</h3>
+          <p>Everything behind an infrastructure investment committee memo, split into legal, financial, technical and ESG, and commercial workstreams.</p>
+          <div class="nums"><span><b>231</b>tasks</span><span><b>27</b>decision points</span><span><b>7</b>sync points</span></div>
+        </div>
+      </a>
+      <a class="fc" href="https://mindtensorml.github.io/ppp-bid-pipeline/">
+        <div class="thumb"><img src="assets/thumb-ppp.png" alt="A phase diagram from the PPP bid preparation map" loading="lazy"></div>
+        <div class="body">
+          <div class="k">Public-private partnerships</div>
+          <h3>PPP bid preparation</h3>
+          <p>A PPP bid from the first pipeline signal to financial close, mapped against the APMG PPP Certification Guide, with a named owner on every task.</p>
+          <div class="nums"><span><b>14</b>phases</span><span><b>114</b>tasks</span><span><b>17</b>decision gates</span></div>
+        </div>
+      </a>
+      <a class="fc" href="https://mindtensorml.github.io/pm-em/">
+        <div class="thumb"><img src="assets/thumb-em.png" alt="Master workflow of the EM infrastructure portfolio map" loading="lazy"></div>
+        <div class="body">
+          <div class="k">Emerging markets</div>
+          <h3>EM infrastructure portfolio</h3>
+          <p>Running an emerging-market infrastructure portfolio from mandate to watchlist, with screening under the IFC Performance Standards.</p>
+          <div class="nums"><span><b>8</b>steps</span><span><b>5</b>gates</span><span><b>52</b>process nodes</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="more">
+      <a class="mc" href="https://mindtensorml.github.io/financial-modelling/">
+        <div class="k">Modeling</div>
+        <h3>Financial modeling playbook</h3>
+        <p>Building a model that holds up in review, from scoping and architecture to stress tests and circular references.</p>
+        <div class="n">6 phases · 91 steps · 13 checkpoints</div>
+      </a>
+      <a class="mc" href="https://mindtensorml.github.io/pm-framework/">
+        <div class="k">Portfolio construction</div>
+        <h3>Portfolio construction framework</h3>
+        <p>A general process that routes by objective type and selection method, with three tiers of feedback.</p>
+        <div class="n">7 steps · 35 sub-steps · 3 feedback tiers</div>
+      </a>
+      <a class="mc" href="https://mindtensorml.github.io/pm-rms/">
+        <div class="k">Public equities</div>
+        <h3>AI-assisted equity portfolio pilot</h3>
+        <p>A five-week pilot for a US equity value portfolio, from mandate to mock investment committee, using public data only.</p>
+        <div class="n">7 stages · 2 human gates · 5 weeks</div>
+      </a>
+    </div>
+  </section>
 
-  <h2>How the maps are made</h2>
-  <ol class="method">
-    <li><b>Map the work as practitioners do it.</b> Every step, handoff and check, including the ones nobody writes down.</li>
-    <li><b>Classify each step.</b> Decide what a model can do alone, what needs a reviewer, and what stays with people.</li>
-    <li><b>Put the gates where the risk is.</b> Go or no-go points sit before money or reputation is committed.</li>
-    <li><b>Write it for an agent.</b> Turn the map into a skills file, then check whether a model actually follows it.</li>
-  </ol>
+  <section id="method">
+    <div class="sh"><div><div class="eyebrow">Method</div><h2>How the maps are made</h2></div></div>
+    <div class="steps">
+      <div><span class="n">01</span><h4>Map the work as practitioners do it</h4><p>Every step, handoff and check, including the ones nobody writes down.</p></div>
+      <div><span class="n">02</span><h4>Classify each step</h4><p>Decide what a model can do alone, what needs a reviewer, and what stays with people.</p></div>
+      <div><span class="n">03</span><h4>Put the gates where the risk is</h4><p>Go or no-go points sit before money or reputation is committed.</p></div>
+      <div><span class="n">04</span><h4>Write it for an agent</h4><p>Turn the map into a skills file, then check whether a model actually follows it.</p></div>
+    </div>
+  </section>
 
-  <h2>Also built</h2>
-  <div class="grid">
-    <a class="card" href="https://mindtensorml.github.io/ai-ghee/">
-      <h3>ai-ghee</h3>
-      <p>A Raspberry Pi rig, built with Claude, that churns traditional bilona ghee and stops itself when the butter breaks, by watching the motor current.</p>
-    </a>
-  </div>
-
-  <footer>Caesar Rana is a CFA charterholder, an APMG Certified PPP Professional and a former IFC Operations Officer. The maps describe general methods and contain no client data.</footer>
+  <footer>
+    <p>Caesar Rana is a CFA charterholder, an APMG Certified PPP Professional and a former IFC Operations Officer. The maps were built at SpaceXAI and are shared with its permission. They describe general methods and contain no client data.</p>
+    <span>Also built · <a href="https://mindtensorml.github.io/ai-ghee/">ai-ghee</a></span>
+  </footer>
 </main>
 </body>
 </html>
